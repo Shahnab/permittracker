@@ -42,6 +42,10 @@ const App: React.FC = () => {
     enabled: true,
     channels: ['inApp'],
     leadTime: 60,
+    emailSettings: {
+      sendCalendarInvites: true,
+      reminderIntervals: ['30days']
+    }
   });
 
   const handleSelectExpat = (id: string) => {

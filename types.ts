@@ -105,10 +105,16 @@ export type View = 'dashboard' | 'expats' | 'expatDetail' | 'reports' | 'setting
 
 export type NotificationChannel = 'inApp' | 'email';
 
+export type ReminderInterval = '7days' | '14days' | '30days' | '60days';
+
 export interface NotificationSettings {
     enabled: boolean;
     channels: NotificationChannel[];
     leadTime: 30 | 60 | 90;
+    emailSettings?: {
+        sendCalendarInvites: boolean;
+        reminderIntervals: ReminderInterval[];
+    };
 }
 
 export interface Notification {
