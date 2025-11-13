@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              'brand-primary': '#0052cc',
+              'brand-secondary': '#f4f5f7',
+              'status-green': '#36b37e',
+              'status-yellow': '#ffab00',
+              'status-red': '#ff5630',
+              'status-blue': '#0065ff',
+              'text-primary': '#172b4d',
+              'text-secondary': '#5e6c84',
+            }
+          }
+        }
+      }
+    </script>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "date-fns/": "https://aistudiocdn.com/date-fns@^4.1.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/permittracker/assets/index-HLFgjAPn.js"></script>
+</head>
+  <body class="bg-brand-secondary">
+    <div id="root"></div>
+  </body>
+</html>
