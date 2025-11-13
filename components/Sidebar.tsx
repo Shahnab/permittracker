@@ -83,7 +83,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, setView, isOpen, onClose
           <div className="flex items-center">
               <img className="h-10 w-10 rounded-full" src="https://i.pravatar.cc/150?u=hr_manager" alt="HR Manager" />
               <div className="ml-3">
-                  <p className="text-sm font-semibold text-text-primary">A useless HR</p>
+                  <p className="text-sm font-semibold text-text-primary">The Useless HR</p>
                   <p className="text-xs text-text-secondary">HR Manager</p>
               </div>
           </div>
