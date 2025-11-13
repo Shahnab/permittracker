@@ -30,9 +30,9 @@ const Settings: React.FC<SettingsProps> = ({ currentSettings, onSave }) => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white p-6 rounded-lg shadow-sm">
-        <h2 className="text-2xl font-bold text-text-primary mb-1">Notification Settings</h2>
-        <p className="text-text-secondary mb-6">Configure how and when you receive reminders.</p>
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
+        <h2 className="text-xl md:text-2xl font-bold text-text-primary mb-1">Notification Settings</h2>
+        <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6">Configure how and when you receive reminders.</p>
 
         {/* Master Toggle */}
         <div className="flex items-center justify-between py-4 border-b">

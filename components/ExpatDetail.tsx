@@ -108,15 +108,15 @@ const DocumentChecklist: React.FC<{
     };
 
     return (
-        <div className="mt-6 p-6 border rounded-lg">
-            <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center">
-                <ClipboardDocumentCheckIcon className="w-5 h-5 mr-2 text-gray-400" />
+        <div className="mt-4 md:mt-6 p-4 md:p-6 border rounded-lg">
+            <h3 className="text-base md:text-lg font-semibold text-text-primary mb-4 flex items-center">
+                <ClipboardDocumentCheckIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 text-gray-400" />
                 Document Checklist
             </h3>
             <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" multiple />
             <div className="overflow-x-auto">
-                 <table className="w-full text-left text-sm">
-                    <thead className="bg-gray-50 text-xs text-text-secondary uppercase font-semibold">
+                 <table className="w-full text-left text-xs md:text-sm">
+                    <thead className="bg-gray-50 text-xs md:text-xs text-text-secondary uppercase font-semibold">
                         <tr>
                             <th className="p-2 text-text-primary">Document Name</th>
                             <th className="p-2">Digital Copy</th>
@@ -206,31 +206,31 @@ const ExpatDetail: React.FC<ExpatDetailProps> = ({ expat, onBack, onAddDocument,
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
-      <button onClick={onBack} className="flex items-center text-sm text-brand-primary font-medium mb-6">
+    <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
+      <button onClick={onBack} className="flex items-center text-sm text-brand-primary font-medium mb-4 md:mb-6">
         <ArrowLeftIcon className="w-4 h-4 mr-2" />
         Back to Expat List
       </button>
 
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-6">d:gap-6">
         {/* Left Column */}
-        <div className="md:w-1/3">
-            <div className="flex flex-col items-center p-6 border rounded-lg bg-gray-50">
-                <img src={expat.avatarUrl} alt={expat.name} className="h-24 w-24 rounded-full mb-4 ring-4 ring-white shadow-md" />
-                <h2 className="text-2xl font-bold text-text-primary">{expat.name}</h2>
-                <p className="text-text-secondary">{expat.jobTitle}</p>
-                <p className="text-sm text-text-secondary mt-1">{expat.department} Department</p>
+        <div className="lg:w-1/3">
+            <div className="flex flex-col items-center p-4 md:p-6 border rounded-lg bg-gray-50">ay-50">
+                <img src={expat.avatarUrl} alt={expat.name} className="h-20 w-20 md:h-24 md:w-24 rounded-full mb-4 ring-4 ring-white shadow-md" />
+                <h2 className="text-xl md:text-2xl font-bold text-text-primary text-center">{expat.name}</h2>
+                <p className="text-sm md:text-base text-text-secondary text-center">{expat.jobTitle}</p>
+                <p className="text-xs md:text-sm text-text-secondary mt-1 text-center">{expat.department} Department</p>
             </div>
-             <div className="mt-6 p-4 border rounded-lg">
-                <h3 className="text-lg font-semibold text-text-primary mb-3 flex items-center"><UserIcon className="w-5 h-5 mr-2 text-gray-400"/>Personal Details</h3>
+             <div className="mt-4 md:mt-6 p-3 md:p-4 border rounded-lg">
+                <h3 className="text-base md:text-lg font-semibold text-text-primary mb-3 flex items-center"><UserIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 text-gray-400"/>Personal Details</h3>
                 <div className="space-y-2 text-sm">
                     <p><strong className="font-medium text-text-secondary">Nationality:</strong> {expat.nationality}</p>
                     <p><strong className="font-medium text-text-secondary">Permit No:</strong> {expat.currentPermit.permitNumber}</p>
                 </div>
             </div>
-             <div className="mt-6 p-4 border rounded-lg">
-                <h3 className="text-lg font-semibold text-text-primary mb-3 flex items-center">
-                    <DocumentIcon className="w-5 h-5 mr-2 text-gray-400" />
+             <div className="mt-4 md:mt-6 p-3 md:p-4 border rounded-lg">
+                <h3 className="text-base md:text-lg font-semibold text-text-primary mb-3 flex items-center">
+                    <DocumentIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 text-gray-400" />
                     Work Permit Information
                 </h3>
                 <div className="space-y-2 text-sm">
@@ -248,16 +248,16 @@ const ExpatDetail: React.FC<ExpatDetailProps> = ({ expat, onBack, onAddDocument,
                     </div>
                 </div>
             </div>
-            <div className="mt-6 p-4 border rounded-lg">
-                <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center">
-                    <ClipboardDocumentListIcon className="w-5 h-5 mr-2 text-gray-400" />
+            <div className="mt-4 md:mt-6 p-3 md:p-4 border rounded-lg">
+                <h3 className="text-base md:text-lg font-semibold text-text-primary mb-4 flex items-center">
+                    <ClipboardDocumentListIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 text-gray-400" />
                     Renewal History
                 </h3>
 
-                <div className="space-y-3">
+                <div className="space-y-3 overflow-x-auto">
                     {expat.renewalHistory.length > 0 ? (
-                        <table className="w-full text-left text-sm">
-                            <thead className="bg-gray-50 text-xs text-text-secondary uppercase">
+                        <table className="w-full text-left text-xs md:text-sm">d:text-sm">
+                            <thead className="bg-gray-50 text-xs md:text-xs text-text-secondary uppercase">
                                 <tr>
                                     <th className="p-2 font-semibold">Renewal Date</th>
                                     <th className="p-2 font-semibold">Status</th>
@@ -301,17 +301,17 @@ const ExpatDetail: React.FC<ExpatDetailProps> = ({ expat, onBack, onAddDocument,
         </div>
 
         {/* Right Column */}
-        <div className="md:w-2/3">
-            <div className="p-6 border rounded-lg">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold text-text-primary flex items-center">
-                      <ArrowPathIcon className="w-5 h-5 mr-2 text-gray-400" />
+        <div className="lg:w-2/3">
+            <div className="p-4 md:p-6 border rounded-lg">ed-lg">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
+                  <h3 className="text-base md:text-lg font-semibold text-text-primary flex items-center">
+                      <ArrowPathIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 text-gray-400" />
                       Process Management
                   </h3>
                   {activeProcess && (
                      <button
                         onClick={() => onAdvanceStep(expat.id, activeProcess)}
-                        className="bg-brand-primary text-white font-semibold py-1 px-3 rounded-md hover:bg-blue-700 text-sm transition-colors"
+                        className="w-full sm:w-auto bg-brand-primary text-white font-semibold py-2 px-3 rounded-md hover:bg-blue-700 text-xs md:text-sm transition-colors"
                       >
                           Advance to Next Stage
                       </button>

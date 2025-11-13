@@ -37,6 +37,7 @@ const App: React.FC = () => {
   const [expats, setExpats] = useState<Expat[]>(EXPATS_DATA);
   const [selectedExpatId, setSelectedExpatId] = useState<string | null>(null);
   const [isAddExpatModalOpen, setIsAddExpatModalOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [settings, setSettings] = useState<NotificationSettings>({
     enabled: true,
     channels: ['inApp'],
@@ -245,22 +246,40 @@ const App: React.FC = () => {
 
   return (
     <div className="flex h-screen bg-gray-100 font-sans text-text-primary">
-      <Sidebar currentView={view} setView={setView} />
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <Sidebar 
+        currentView={view} 
+        setView={setView} 
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      />
+      <div className="flex-1 flex flex-col overflow-hidden w-full">
         <header className="flex justify-between items-center p-4 bg-white border-b border-gray-200">
-          <h1 className="text-2xl font-semibold text-text-primary">{getTitle()}</h1>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            {/* Hamburger menu for mobile */}
+            <button
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <h1 className="text-xl md:text-2xl font-semibold text-text-primary">{getTitle()}</h1>
+          </div>
+          <div className="flex items-center gap-2 md:gap-4">
             <Notifications notifications={notifications} onNotificationClick={handleSelectExpat} />
             <button 
               onClick={() => setIsAddExpatModalOpen(true)}
               className="flex items-center gap-2 bg-brand-primary text-white text-sm font-medium py-1.5 px-3 rounded-md hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-primary"
             >
                 <PlusIcon className="w-5 h-5" />
-                <span>Add New Expat</span>
+                <span className="hidden sm:inline">Add New Expat</span>
+                <span className="sm:hidden">Add</span>
             </button>
           </div>
         </header>
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-brand-secondary p-6">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-brand-secondary p-3 md:p-6">
           {renderView()}
         </main>
       </div>

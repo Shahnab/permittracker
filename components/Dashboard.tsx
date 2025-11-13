@@ -30,14 +30,14 @@ const PermitStatusOverview: React.FC<{ stats: { [key in PermitStatus]: number } 
     }));
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
+        <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm h-full flex flex-col">
             <div className="flex items-center mb-4">
-                <ChartPieIcon className="h-6 w-6 text-brand-primary" />
-                <h2 className="text-xl font-semibold text-text-primary ml-2">Permit Status Overview</h2>
+                <ChartPieIcon className="h-5 w-5 md:h-6 md:w-6 text-brand-primary" />
+                <h2 className="text-lg md:text-xl font-semibold text-text-primary ml-2">Permit Status Overview</h2>
             </div>
             <div className="text-center my-4">
-                <span className="text-5xl font-bold text-text-primary">{stats.total}</span>
-                <p className="text-text-secondary font-medium">Total Expats</p>
+                <span className="text-4xl md:text-5xl font-bold text-text-primary">{stats.total}</span>
+                <p className="text-sm md:text-base text-text-secondary font-medium">Total Expats</p>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3 my-2 flex overflow-hidden">
                 {segments.map(({ status, percentage, color }) => (
@@ -49,7 +49,7 @@ const PermitStatusOverview: React.FC<{ stats: { [key in PermitStatus]: number } 
                     ></div>
                 ))}
             </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2 mt-auto pt-4 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mt-auto pt-4 text-xs md:text-sm">
                 {segments.map(({ status, count, color }) => (
                     <div key={status} className="flex items-center justify-between">
                          <div className="flex items-center">
@@ -77,20 +77,20 @@ const UpcomingRenewals: React.FC<{ expats: Expat[], onSelectExpat: (id: string) 
     }, [expats]);
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
+        <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm h-full flex flex-col">
              <div className="flex items-center mb-4">
-                <ClockIcon className="h-6 w-6 text-brand-primary" />
-                <h2 className="text-xl font-semibold text-text-primary ml-2">Upcoming Renewals</h2>
+                <ClockIcon className="h-5 w-5 md:h-6 md:w-6 text-brand-primary" />
+                <h2 className="text-lg md:text-xl font-semibold text-text-primary ml-2">Upcoming Renewals</h2>
             </div>
             <div className="flex-1 overflow-y-auto pr-2 -mr-2 space-y-3">
                 {expiringSoon.length > 0 ? expiringSoon.map(expat => (
                     <div key={expat.id} onClick={() => onSelectExpat(expat.id)} className="flex items-center p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
                         <img src={expat.avatarUrl} alt={expat.name} className="h-10 w-10 rounded-full"/>
-                        <div className="ml-3 flex-1">
-                            <p className="font-semibold text-text-primary text-sm">{expat.name}</p>
-                            <p className="text-xs text-text-secondary">{expat.nationality}</p>
+                        <div className="ml-3 flex-1 min-w-0">
+                            <p className="font-semibold text-text-primary text-sm truncate">{expat.name}</p>
+                            <p className="text-xs text-text-secondary truncate">{expat.nationality}</p>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right flex-shrink-0 ml-2">
                              <span className="font-bold text-sm text-status-yellow">{expat.daysLeft}</span>
                              <p className="text-xs text-text-secondary">days left</p>
                         </div>
@@ -118,14 +118,14 @@ const NationalityDistributionChart: React.FC<{ data: { [key: string]: number } }
     const colors = ['bg-blue-500', 'bg-sky-500', 'bg-cyan-500', 'bg-teal-500', 'bg-emerald-500', 'bg-indigo-500'];
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-sm">
+        <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">
-                <GlobeAltIcon className="h-6 w-6 text-brand-primary" />
-                <h2 className="text-xl font-semibold text-text-primary ml-2">Expats by Nationality</h2>
+                <GlobeAltIcon className="h-5 w-5 md:h-6 md:w-6 text-brand-primary" />
+                <h2 className="text-lg md:text-xl font-semibold text-text-primary ml-2">Expats by Nationality</h2>
             </div>
             <div className="space-y-3">
                 {sortedData.map(([nationality, count], index) => (
-                    <div key={nationality} className="grid grid-cols-3 items-center gap-2 text-sm">
+                    <div key={nationality} className="grid grid-cols-3 items-center gap-2 text-xs md:text-sm">
                         <span className="font-medium text-text-secondary truncate col-span-1">{nationality}</span>
                         <div className="bg-gray-200 rounded-full h-5 col-span-2">
                             <div
@@ -148,17 +148,17 @@ const PermitStatusByNationalityChart: React.FC<{ data: { [key: string]: { [key i
     const sortedData = useMemo(() => Object.entries(data).sort(([, statsA]: [string, { total: number }], [, statsB]: [string, { total: number }]) => statsB.total - statsA.total), [data]);
     
     return (
-        <div className="bg-white p-6 rounded-lg shadow-sm">
+        <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">
-                <ReportsIcon className="h-6 w-6 text-brand-primary" />
-                <h2 className="text-xl font-semibold text-text-primary ml-2">Permit Status by Nationality</h2>
+                <ReportsIcon className="h-5 w-5 md:h-6 md:w-6 text-brand-primary" />
+                <h2 className="text-lg md:text-xl font-semibold text-text-primary ml-2">Permit Status by Nationality</h2>
             </div>
             <div className="space-y-4">
                 {sortedData.map(([nationality, statuses]) => (
                     <div key={nationality}>
                         <div className="flex justify-between items-baseline mb-1">
-                           <h4 className="font-medium text-text-secondary text-sm">{nationality}</h4>
-                           <span className="text-xs text-text-secondary">{statuses.total} total</span>
+                           <h4 className="font-medium text-text-secondary text-xs md:text-sm truncate">{nationality}</h4>
+                           <span className="text-xs text-text-secondary ml-2 flex-shrink-0">{statuses.total} total</span>
                         </div>
                         <div className="flex h-5 w-full bg-gray-200 rounded-full overflow-hidden">
                             {(Object.keys(statusConfig) as PermitStatus[]).map(status => {
@@ -177,11 +177,11 @@ const PermitStatusByNationalityChart: React.FC<{ data: { [key: string]: { [key i
                     </div>
                 ))}
             </div>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-xs">
+            <div className="flex flex-wrap gap-x-3 gap-y-2 mt-4 text-xs">
                 {Object.entries(statusConfig).map(([status, config]) => (
                     <div key={status} className="flex items-center">
                         <span className={`w-3 h-3 rounded-sm mr-1.5 ${config.color}`}></span>
-                        <span>{status}</span>
+                        <span className="whitespace-nowrap">{status}</span>
                     </div>
                 ))}
             </div>

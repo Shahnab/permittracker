@@ -42,7 +42,7 @@ const Notifications: React.FC<NotificationsProps> = ({ notifications, onNotifica
     return (
         <div className="relative" ref={containerRef}>
             <button onClick={toggleDropdown} className="relative p-2 rounded-full hover:bg-gray-100">
-                <BellIcon className="h-6 w-6 text-text-secondary" />
+                <BellIcon className="h-5 w-5 md:h-6 md:w-6 text-text-secondary" />
                 {notificationCount > 0 && (
                      <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-status-red text-white text-xs font-bold">
                         {notificationCount}
@@ -51,9 +51,9 @@ const Notifications: React.FC<NotificationsProps> = ({ notifications, onNotifica
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl border z-10">
+                <div className="absolute right-0 mt-2 w-72 sm:w-80 bg-white rounded-lg shadow-xl border z-10 max-w-[calc(100vw-2rem)]">
                     <div className="p-3 border-b">
-                        <h3 className="font-semibold text-text-primary">Notifications</h3>
+                        <h3 className="font-semibold text-text-primary text-sm md:text-base">Notifications</h3>
                     </div>
                     <div className="max-h-96 overflow-y-auto">
                         {notificationCount > 0 ? (

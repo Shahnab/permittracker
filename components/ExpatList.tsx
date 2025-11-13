@@ -34,7 +34,7 @@ const ExpatList: React.FC<ExpatListProps> = ({ expats, onSelectExpat }) => {
   }, [expats, searchTerm]);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
+    <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
       <div className="mb-4">
         <input
           type="text"
@@ -44,7 +44,9 @@ const ExpatList: React.FC<ExpatListProps> = ({ expats, onSelectExpat }) => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <div className="overflow-x-auto">
+      
+      {/* Desktop Table View */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left">
           <thead className="bg-gray-50 text-xs text-text-secondary uppercase font-semibold">
             <tr>
@@ -76,6 +78,42 @@ const ExpatList: React.FC<ExpatListProps> = ({ expats, onSelectExpat }) => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-3">
+        {filteredExpats.map(expat => (
+          <div
+            key={expat.id}
+            onClick={() => onSelectExpat(expat.id)}
+            className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer transition-colors"
+          >
+            <div className="flex items-start gap-3 mb-3">
+              <img src={expat.avatarUrl} alt={expat.name} className="h-12 w-12 rounded-full flex-shrink-0" />
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-text-primary truncate">{expat.name}</h3>
+                <p className="text-sm text-text-secondary truncate">{expat.jobTitle}</p>
+              </div>
+              <StatusBadge status={expat.currentPermit.status} />
+            </div>
+            <div className="space-y-1.5 text-sm">
+              <div className="flex justify-between">
+                <span className="text-text-secondary">Nationality:</span>
+                <span className="text-text-primary font-medium">{expat.nationality}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-text-secondary">Permit Expiry:</span>
+                <span className="text-text-primary font-medium">
+                  {expat.currentPermit.expiryDate !== 'N/A' ? format(parseISO(expat.currentPermit.expiryDate), 'MMM d, yyyy') : 'N/A'}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-text-secondary">Current Stage:</span>
+                <span className="text-text-primary font-medium truncate ml-2">{getCurrentStage(expat)}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

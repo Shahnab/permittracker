@@ -43,14 +43,14 @@ const AddExpatForm: React.FC<AddExpatFormProps> = ({ onSave, onCancel }) => {
     }
   };
   
-  const FormRow: React.FC<{ children: React.ReactNode}> = ({ children }) => <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">{children}</div>;
+  const FormRow: React.FC<{ children: React.ReactNode}> = ({ children }) => <div className="grid grid-cols-1 gap-4">{children}</div>;
   const FormField: React.FC<{ label: string, name: string, value: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, error?: string, required?: boolean, type?: string, placeholder?: string }> = ({ label, name, error, ...props }) => (
     <div>
-        <label htmlFor={name} className="block text-sm font-medium text-text-secondary">{label}</label>
+        <label htmlFor={name} className="block text-sm font-medium text-text-secondary mb-1">{label}</label>
         <input
             id={name}
             name={name}
-            className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary sm:text-sm ${error ? 'border-red-500' : ''} bg-white text-text-primary placeholder:text-text-secondary`}
+            className={`block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary text-sm ${error ? 'border-red-500' : ''} bg-white text-text-primary placeholder:text-text-secondary p-2`}
             {...props}
         />
         {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
