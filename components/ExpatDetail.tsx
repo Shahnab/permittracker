@@ -212,10 +212,10 @@ const ExpatDetail: React.FC<ExpatDetailProps> = ({ expat, onBack, onAddDocument,
         Back to Expat List
       </button>
 
-      <div className="flex flex-col lg:flex-row gap-4 md:gap-6">d:gap-6">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Left Column */}
         <div className="lg:w-1/3">
-            <div className="flex flex-col items-center p-4 md:p-6 border rounded-lg bg-gray-50">ay-50">
+            <div className="flex flex-col items-center p-4 md:p-6 border rounded-lg bg-gray-50">
                 <img src={expat.avatarUrl} alt={expat.name} className="h-20 w-20 md:h-24 md:w-24 rounded-full mb-4 ring-4 ring-white shadow-md" />
                 <h2 className="text-xl md:text-2xl font-bold text-text-primary text-center">{expat.name}</h2>
                 <p className="text-sm md:text-base text-text-secondary text-center">{expat.jobTitle}</p>
@@ -256,7 +256,7 @@ const ExpatDetail: React.FC<ExpatDetailProps> = ({ expat, onBack, onAddDocument,
 
                 <div className="space-y-3 overflow-x-auto">
                     {expat.renewalHistory.length > 0 ? (
-                        <table className="w-full text-left text-xs md:text-sm">d:text-sm">
+                        <table className="w-full text-left text-xs md:text-sm">
                             <thead className="bg-gray-50 text-xs md:text-xs text-text-secondary uppercase">
                                 <tr>
                                     <th className="p-2 font-semibold">Renewal Date</th>
@@ -302,7 +302,7 @@ const ExpatDetail: React.FC<ExpatDetailProps> = ({ expat, onBack, onAddDocument,
 
         {/* Right Column */}
         <div className="lg:w-2/3">
-            <div className="p-4 md:p-6 border rounded-lg">ed-lg">
+            <div className="p-4 md:p-6 border rounded-lg">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
                   <h3 className="text-base md:text-lg font-semibold text-text-primary flex items-center">
                       <ArrowPathIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 text-gray-400" />
