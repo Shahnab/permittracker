@@ -1,0 +1,5 @@
+{
+  "name": "Permit Tracker",
+  "description": "A SaaS platform for HR teams to streamline and track work permits for expatriate employees in Vietnam. It provides automated reminders, centralized document management, and an AI-powered process assistant to ensure compliance and timely renewals, even with high staff turnover.",
+  "requestFramePermissions": []
+}
